@@ -1,0 +1,100 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: reschedule_session
+  examples: |
+    - I would like to change [session](session) time
+    - I would like to reschedule a [session](session)
+    - I want to reschedule a [session](session)
+    - I would like to change a [call time](session)
+    - I want to change a [call time](session)
+    - I would like to reschedule [talk with a coach](session)
+
+- intent: about_program
+  examples: |
+    - What is [Medicoach](program)
+    - What [Medicoach](program) offers
+
+- intent: submit_phone_number
+  examples: |
+    - My phone is [+581238435](phone_number)
+    - [5612345678](phone_number)
+    - [334-044-7719](phone_number)
+    - [289 331 1090](phone_number)
+    - [145.959.0088](phone_number)
+    - [(581)332-3250](phone_number)
+    - [(675)299 5423](phone_number)
+    - [(213)555.1286](phone_number)
+    - [(324) 446-7768](phone_number)
+    - [(581) 033 1250](phone_number)
+    - [(548) 337.2376](phone_number)
+    - My number is [+32546657484](phone_number)
+
+- regex: phone_number
+  examples: |
+    # Taken from: https://stackoverflow.com/questions/3868753/find-phone-numbers-in-python-script
+    - (\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}) 
+    # - \d{6,10}
+    # - \+\d{6,10}
+
+- intent: enter_data
+  examples: | 
+    - My first name is [Rodrigo](first_name)
+    - My last name is [Welsch](last_name)
+ 

@@ -1,0 +1,22 @@
+version: "2.0"
+
+stories:
+
+- story: about program
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: about_program
+  - action: utter_about_program
+
+- story: reschedule
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: reschedule_session
+  - action: reschedule_session_form
+  - active_loop: reschedule_session_form
+  - active_loop: null
+  - action: action_submit_reschedule_session
+  - action: utter_goodbye
+

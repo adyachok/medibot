@@ -1,0 +1,92 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - reschedule_session
+  - about_program
+  - enter_data
+
+entities:
+  - session
+  - program
+  - phone_number
+  - first_name
+  - last_name
+
+slots:
+  phone_number:
+    type: text
+    influence_conversation: false
+  first_name:
+    type: text
+    influence_conversation: false
+  last_name:
+    type: text
+    influence_conversation: false
+
+actions:
+  - action_reschedule_session
+  - validate_reschedule_session_form
+  - action_submit_reschedule_session
+
+forms:
+  reschedule_session_form:
+    first_name:
+      - type: from_text
+        auto_fill: false 
+    last_name:
+      - type: from_text
+        auto_fill: false 
+    phone_number:
+      - type: from_entity
+        entity: phone_number
+      - type: from_text
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_approve:
+  - text: "Should I reschedule your session on the later time?"
+
+  utter_ask_phone_number:
+  - text: "May I ask you to provide you phone number?"
+
+  utter_ask_first_name:
+  - text: "Please, provide your first name" 
+
+  utter_ask_last_name:
+  - text: "Please, provide your last name" 
+
+  utter_no_first_name:
+  - text: "Please, provide your first name. It shoulf contain more then one character"
+
+  utter_no_last_name:
+  - text: "Please, provide your last name. It shoulf contain more then one character"
+
+  utter_about_program:
+  - text: "This program created to help people..."
+
+  utter_no_phone_number:
+  - text: "No phone number"
+
+  utter_default_fallback:
+  - text: "Sorry, I don't understand. Could you, please, repeat?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
